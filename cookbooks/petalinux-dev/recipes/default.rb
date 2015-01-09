@@ -32,6 +32,11 @@ packages = %w[
   libselinux1
 ]
 
+# Install prerequisite packages
+packages.each do |pkg|
+  package pkg
+end
+
 # Install tftpd config file
 template "/etc/xinetd.d/tftp" do
   source "tftp"
@@ -47,11 +52,6 @@ end
 service "xinetd" do
   action :stop
   action :start
-end
-
-# Install prerequisite packages
-packages.each do |pkg|
-  package pkg
 end
 
 # Download petalinux installer
