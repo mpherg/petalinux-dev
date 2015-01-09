@@ -32,6 +32,23 @@ packages = %w[
   libselinux1
 ]
 
+# Install tftpd config file
+template "/etc/xinetd.d/tftp" do
+  source "tftp"
+  mode "0777"
+  owner "root"
+  group "root"
+end
+
+directory "/tftpboot" do
+  action :create
+end
+
+service "xinetd" do
+  action :stop
+  action :start
+end
+
 # Install prerequisite packages
 packages.each do |pkg|
   package pkg
