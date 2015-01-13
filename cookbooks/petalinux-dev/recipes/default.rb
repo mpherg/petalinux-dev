@@ -27,9 +27,17 @@ packages = %w[
   bison
   lib32z1
   lib32ncurses5
+  lib32ncursesw5
   lib32bz2-1.0
   lib32stdc++6
   libselinux1
+  putty
+  fontconfig
+  fontconfig:i386
+  libxext6:i386
+  libxrender1:i386
+  libglib2.0-0:i386
+  libsm6:i386
 ]
 
 # Install prerequisite packages
